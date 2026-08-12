@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class ParkingSpaceBase(BaseModel):
     code: str
@@ -11,8 +11,7 @@ class ParkingSpaceCreate(ParkingSpaceBase):
 class ParkingSpace(ParkingSpaceBase):
     id: int
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ParkingSpaceResponse(ParkingSpace):
     pass

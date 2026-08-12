@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from app.models.reservation import Reservation
 
 class ReservationRepository:
-    def __inti__(self, db:Session):
+    def __init__(self, db: Session):
         self.db = db
         
     def get_by_id(self, reservation_id: int) -> Optional[Reservation]:
@@ -17,7 +17,7 @@ class ReservationRepository:
             query = query.filter(Reservation.status == status)
         return query.all()
     
-    def check_overlap(self, parking_space_id: int, start_time: datetime, end_time: datetime) -> Bool:
+    def check_overlap(self, parking_space_id: int, start_time: datetime, end_time: datetime) -> bool:
         #check for overlapping ( ExistingStart < NewEnd && ExistingEnd > NewStart)
         overlapping = (
             self.db.query(Reservation)

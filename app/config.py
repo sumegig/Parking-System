@@ -1,8 +1,8 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    PROJEXT_NAME: str = "Parking-System"
+    PROJECT_NAME: str = "Parking-System"
     DATABASE_URL: str = "postgresql://parking_user:parking_password@localhost:5432/parking_db"
     
     class Config: 

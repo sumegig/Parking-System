@@ -2,7 +2,7 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 from app.models.parking_space import ParkingSpace
 
-class ParkingSpaceRespository:
+class ParkingSpaceRepository:
     def __init__(self, db: Session):
         self.db = db
         
